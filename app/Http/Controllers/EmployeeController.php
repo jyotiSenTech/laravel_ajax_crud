@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 class EmployeeController extends Controller
 {
 
-// == ## Redirect Employee Register ===================================================================================
+    // == ## Redirect Employee Register ===================================================================================
     public function index()
     {
         return view('employee_register');
@@ -31,8 +31,8 @@ class EmployeeController extends Controller
             'emp_password' => 'required|string|min:8',
             'confirm_password' => 'required|string|same:emp_password',
         ]);
-        
-        dd($validatedData);
+
+        // dd($validatedData);
 
         $employees = Employee::create([
 
@@ -45,8 +45,8 @@ class EmployeeController extends Controller
         ]);
         $employees->save();
 
-        // return response()->json(['message'=>'Employee Created Successfully', 'employees'=>$employees],201);
-        return redirect()->route('employee_list');
+        //return response()->json(['message' => 'Employee Created Successfully', 'employees' => $employees], 201);
+         return redirect()->route('employee_list');
     }
 
 
