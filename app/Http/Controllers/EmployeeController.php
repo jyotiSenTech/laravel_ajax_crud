@@ -33,6 +33,9 @@ class EmployeeController extends Controller
         ]);
 
         // dd($validatedData);
+        // echo '<pre>';
+        // print_r($validatedData);
+        // echo '</pre>';
 
         $employees = Employee::create([
 
@@ -46,7 +49,7 @@ class EmployeeController extends Controller
         $employees->save();
 
         //return response()->json(['message' => 'Employee Created Successfully', 'employees' => $employees], 201);
-         return redirect()->route('employee_list');
+        return redirect()->route('employee_list');
     }
 
 
