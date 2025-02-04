@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('emp_username')->unique();
             $table->string('emp_password');
             $table->timestamps();
-
+            $table->softDeletes('deleted_at', precision: 0);
         });
     }
 

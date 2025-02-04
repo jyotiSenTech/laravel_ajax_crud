@@ -245,49 +245,6 @@
 </div>
 
 
-
-<!-- <script>
-    $(document).ready(function() {
-        $('#student_form_submit').on('click', function(e) {
-            e.preventDefault();
-
-            let formData = new FormData();
-            formData.append('student_name', $('#student_name').val());
-            formData.append('student_email', $('#student_email').val());
-            formData.append('student_phone', $('#student_phone').val());
-            formData.append('student_dob', $('#student_dob').val());
-            formData.append('student_address', $('#student_address').val());
-            formData.append('student_course_name', $('#student_course_name').val());
-            formData.append('student_profile', $('#student_profile')[0].files[0]);
-            formData.append('_token', $('input[name="_token"]').val());
-
-            console.log('#student_form');
-
-            $.ajax({
-                url: "{{ route('student_create') }}",
-                method: "POST",
-                data: formData,
-                contentType: false,
-                processData: false,
-                success: function(response) {
-                    alert(response.message);
-                    $('#student_form')[0].reset();
-                },
-                error: function(xhr) {
-                    let errors = xhr.responseJSON.errors;
-                    let errorMessage = '<ul>';
-                    for (let key in errors) {
-                        errorMessage += '<li>' + errors[key][0] + '</li>';
-                    }
-                    errorMessage += '</ul>';
-                    alert(errorMessage);
-                }
-            });
-        });
-    });
-</script> -->
-
-
 <script>
     $(document).ready(function() {
         $('#student_form_submit').on('click', function(e) {
@@ -316,6 +273,8 @@
                 data: formData,
                 contentType: false,
                 processData: false,
+                // type:'html',Read this in ajax with search
+
                 success: function(response) {
                     alert(response.message);
                     $('#student_form')[0].reset();
@@ -328,7 +287,7 @@
                     }
                     errorMessage += '</ul>';
                     alert(errorMessage);
-                }
+                },
             });
         });
     });

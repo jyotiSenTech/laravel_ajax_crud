@@ -19,11 +19,15 @@ use App\Http\Controllers\StudentController;
 
 
 Route::get('/', [EmployeeController::class, 'index'])->name('employee_register');
-Route::post('/emp_create', [EmployeeController::class, 'employee_create'])->name('employee_create');
-Route::get('/emp_list', action: [EmployeeController::class, 'employee_show'])->name('employee_list');
-Route::get('/emp_edit/{id}', action: [EmployeeController::class, 'employee_edit'])->name('employee_edit');
-Route::post('/emp_update/{id}', action: [EmployeeController::class, 'employee_update'])->name('employee_update');
-Route::get('/emp_delete/{id}', action: [EmployeeController::class, 'employee_delete'])->name('employee_delete');
+Route::match(['get', 'post'], '/employee/{action}/{id?}', [EmployeeController::class, 'employee_crud'])
+    ->name('employee_crud');
+
+// Route::post('/emp_create', [EmployeeController::class, 'employee_create'])->name('employee_create');
+// Route::get('/emp_list', action: [EmployeeController::class, 'employee_show'])->name('employee_list');
+// Route::get('/emp_edit/{id}', action: [EmployeeController::class, 'employee_edit'])->name('employee_edit');
+// Route::post('/emp_update/{id}', action: [EmployeeController::class, 'employee_update'])->name('employee_update');
+// Route::get('/emp_delete/{id}', action: [EmployeeController::class, 'employee_delete'])->name('employee_delete');
+
 
 
 Route::get('/student_register', [StudentController::class, 'index'])->name('student_register');

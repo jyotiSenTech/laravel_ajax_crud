@@ -116,13 +116,13 @@
                     <td>{{$employee->emp_gender}}</td>
                     <td>{{$employee->emp_username}}</td>
                     <td>{{$employee->created_at->format('d-m-Y')}}</td>
-                    <td> <a href="{{route('employee_edit',['id'=>$employee->id])}}"
-                            class="btn btn-sm btn-info ms-3"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>  </a>
+
+                    <td> <a href="{{route('employee_crud',['action'=>'employee_edit','id'=>$employee->id])}}"
+                            class="btn btn-sm btn-info ms-3"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> </a>
                     </td>
-                    <td> <a href="{{route('employee_delete',['id'=>$employee->id])}}"
+                    <td> <a href="{{route('employee_crud',['action'=>'employee_delete','id'=>$employee->id])}}"
                             class="btn btn-sm btn-info ms-3"><i class="fa fa-trash-o" aria-hidden="true"></i> </a>
                     </td>
-                   
 
                 </tr>
                 @endforeach

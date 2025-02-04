@@ -192,21 +192,23 @@
 <!-- ##  MAin Section =========== -->
 @section('main-section')
 
+
+
 <div class="container">
     <div class="title">Employee Registration
-        <a href="{{route('employee_list')}}" class="btn btn-sm btn-success ms-5">
+        <a href="{{route('employee_crud', ['action'=>'employee_show'])}}" class="btn btn-sm btn-success ms-5">
             <i class="fa fa-user" aria-hidden="true"></i> Employee List</a>
 
         <a href="{{route('student_register')}}" class="btn btn-sm btn-info ms-2">
             <i class="fa fa-user" aria-hidden="true"></i> Student Register</a>
 
     </div>
-    <form action="{{route('employee_create')}}" method="post">
+    <form action="{{route('employee_crud', ['action' => 'employee_create'])}}" method="post">
         @csrf
         <div class="user__details  mt-4">
             <div class="input__box">
                 <span class="details">Full Name</span>
-                <input name="emp_full_name" type="text" placeholder="E.g: John Smith" required>
+                <input name="emp_full_name" type="text" placeholder="E.g: John Smith" >
             </div>
             <div class="input__box">
                 <span class="details">Username</span>
@@ -218,15 +220,15 @@
             </div>
             <div class="input__box">
                 <span class="details">Phone Number</span>
-                <input name="emp_phone" type="tel" maxlength="12" minlength="10" required>
+                <input name="emp_phone" type="tel" minlength="10" maxlength="12" required>
             </div>
             <div class="input__box">
                 <span class="details">Password</span>
-                <input name="emp_password" type="password" placeholder="********" required>
+                <input name="emp_password" minlength="8" maxlength="16" type="password" placeholder="********" required>
             </div>
             <div class="input__box">
                 <span class="details">Confirm Password</span>
-                <input name="confirm_password" type="password" placeholder="********" required>
+                <input name="confirm_password" minlength="8" maxlength="16" type="password" placeholder="********" required>
             </div>
 
         </div>
@@ -255,7 +257,15 @@
         </div>
 
     </form>
+
+    @if($errors->any())
+    @foreach($errors->all() as $error)
+    <div>{{ $error }}</div>
+    @endforeach
+    @endif
+
 </div>
+
 
 
 @endsection

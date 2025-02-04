@@ -196,8 +196,9 @@
 
 <div class="container">
     <div class="title">Employee Update</div>
-    <form action="{{route('employee_update',['id'=>$employee->id])}}" method="post">
+    <form action="{{route('employee_crud',['action'=>'employee_update','id'=>$employee->id])}}">
         @csrf
+        @method('PUT')
         <div class="user__details">
             <div class="input__box">
                 <span class="details">Full Name</span>
@@ -213,13 +214,13 @@
             </div>
             <div class="input__box">
                 <span class="details">Phone Number</span>
-                <input name="emp_phone" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" value="{{$employee->emp_phone}}" placeholder="012-345-6789" required>
+                <input name="emp_phone" type="tel" value="{{$employee->emp_phone}}" placeholder="012-345-6789" required>
             </div>
-
+            <!-- pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" -->
 
         </div>
         <div class="gender__details">
-       
+
             <input type="radio" name="emp_gender" value="M" @if($employee->emp_gender == 'M') checked @endif id="dot-1">
             <input type="radio" name="emp_gender" value="F" @if($employee->emp_gender == 'F') checked @endif id="dot-2">
             <input type="radio" name="emp_gender" value="O" @if($employee->emp_gender == 'O') checked @endif id="dot-3">
