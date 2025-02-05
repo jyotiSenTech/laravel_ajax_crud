@@ -277,8 +277,12 @@
 
                 success: function(response) {
                     alert(response.message);
+                    window.location.href = "{{ route('student_list') }}";
                     $('#student_form')[0].reset();
                 },
+                // error: function() {
+                //     alert('An error occurred while fetching the students.');
+                // }
                 error: function(xhr) {
                     let errors = xhr.responseJSON.errors;
                     let errorMessage = '<ul>';

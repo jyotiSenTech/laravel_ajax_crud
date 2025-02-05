@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('student_address');
             $table->string('student_course_name');
             $table->timestamps();
+            $table->softDeletes('deleted_at', precision: 0);
         });
     }
 

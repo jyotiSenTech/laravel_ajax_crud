@@ -54,6 +54,7 @@ class StudentController extends Controller
     //     ]);
     // }
 
+
     public function student_create(Request $request)
     {
         // Validate input data
@@ -98,8 +99,6 @@ class StudentController extends Controller
     }
 
 
-
-
     // == ## Student Details fetch Using Ajax ===================================================================================
 
 
@@ -114,10 +113,15 @@ class StudentController extends Controller
     //     ]);
     // }
 
+
+
     public function student_show(Request $request)
     {
         if ($request->ajax()) {
-            // Return JSON response for AJAX requests
+
+            // $students = (new Student())->getAllStudents();
+            // $students = Student::getAllStudents(); //for use this mention static after public in model 
+
             $students = Student::all();
             return response()->json([
                 'status' => 'success',
@@ -128,7 +132,6 @@ class StudentController extends Controller
         // Return the Blade view for non-AJAX requests
         return view('student_details');
     }
-
 
 
 
@@ -146,31 +149,6 @@ class StudentController extends Controller
         return view('student_edit', compact('student'));
     }
 
-
-
-    // == ## Update Student ===================================================================================
-    // public function student_update(Request $request, $id)
-    // {
-    //     $student = Student::find($id);
-    //     if (!$student) {
-
-    //         return redirect()->back()->withErrors(['message' => 'Student Not Found']);
-    //     } else {
-
-    //         $validateData = $request->validate([
-
-    //             'emp_full_name' => 'required|string|max:255',
-    //             'emp_username' => 'required|string|max:255',
-    //             'emp_email' => 'required|string|max:255|unique:student_master,emp_email,' . $student->id,
-    //             'emp_phone' => 'required|string|max:20',
-    //             'emp_gender' => 'required|string|max:10',
-
-    //         ]);
-
-    //         $student->update($validateData);
-    //         return redirect()->route('student_list')->with('success', 'Student Updated Successfully');
-    //     }
-    // }
 
     public function student_update(Request $request, $id)
     {

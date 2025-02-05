@@ -118,7 +118,7 @@
     $(document).ready(function() {
         function fetchStudents() {
             $.ajax({
-                url: "{{ route('student_list') }}", 
+                url: "{{ route('student_list') }}",
                 type: "GET",
                 success: function(response) {
                     if (response.status === 'success') {
@@ -156,9 +156,16 @@
                         alert('Failed to fetch student data.');
                     }
                 },
-                error: function() {
-                    alert('An error occurred while fetching the students.');
-                }
+
+                error: function(xhr) {
+                    let errors = xhr.responseJSON.errors;
+                    let errorMessage = '<ul>';
+                    for (let key in errors) {
+                        errorMessage += '<li>' + errors[key][0] + '</li>';
+                    }
+                    errorMessage += '</ul>';
+                    alert(errorMessage);
+                },
             });
         }
 
