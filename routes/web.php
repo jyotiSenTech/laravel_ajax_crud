@@ -35,4 +35,4 @@ Route::post('/student_create', [StudentController::class, 'student_create'])->na
 Route::get('/student_list', action: [StudentController::class, 'student_show'])->name('student_list');
 Route::get('/student_edit/{id}', action: [StudentController::class, 'student_edit'])->name('student_edit');
 Route::post('/student_update/{id}', action: [StudentController::class, 'student_update'])->name('student_update');
-Route::get('/student_delete/{id}', action: [StudentController::class, 'student_delete'])->name('student_delete');
+Route::post('/student_delete/{id}', action: [StudentController::class, 'student_delete'])->name('student_delete');

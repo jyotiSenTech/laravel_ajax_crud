@@ -14,6 +14,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta name="csrf-token" content="{{ csrf_token() }}">
 @endsection
 
 
@@ -96,6 +97,7 @@
             <thead class="table__head">
                 <tr class="winner__table">
                     <th>S/N</th>
+                    <th>Student id</th>
                     <th>Student Name</th>
                     <th>Email</th>
                     <th>Mobile Number</th>
@@ -108,11 +110,13 @@
                 </tr>
             </thead>
             <tbody id="studentTableBody">
-                <!-- Data will be dynamically added here -->
+                <!-- Data will be dynamically added here through Ajax -->
             </tbody>
         </table>
     </div>
 </div>
+
+
 
 <script>
     $(document).ready(function() {
@@ -127,8 +131,9 @@
 
                         students.forEach((student, index) => {
                             tableBody += `
-                                <tr>
+                                <tr id="studentRow-${student.id}">
                                     <td>${index + 1}</td>
+                                    <td>${student.id}</td>
                                     <td>${student.student_name}</td>
                                     <td>${student.student_email}</td>
                                     <td>${student.student_phone}</td>
@@ -142,9 +147,10 @@
                                         </a>
                                     </td>
                                     <td>
-                                        <a href="/student_delete/${student.id}" class="btn btn-sm btn-danger">
+                                        <button class="btn btn-sm btn-danger deleteStudent" data-id="${student.id}">
                                             <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                        </a>
+                                        </button>
+                                        
                                     </td>
                                 </tr>
                             `;
@@ -158,21 +164,70 @@
                 },
 
                 error: function(xhr) {
-                    let errors = xhr.responseJSON.errors;
-                    let errorMessage = '<ul>';
-                    for (let key in errors) {
-                        errorMessage += '<li>' + errors[key][0] + '</li>';
+                    let errors = xhr.responseJSON?.errors;
+                    if (errors) {
+                        let errorMessage = '<ul>';
+                        for (let key in errors) {
+                            errorMessage += '<li>' + errors[key][0] + '</li>';
+                        }
+                        errorMessage += '</ul>';
+                        alert(errorMessage);
+                    } else {
+                        alert("An error occurred while fetching students.");
                     }
-                    errorMessage += '</ul>';
-                    alert(errorMessage);
                 },
             });
         }
+
+
+        // AJAX Delete Request
+        $(document).on('click', '.deleteStudent', function(e) {
+            e.preventDefault();
+
+            let studentId = $(this).data('id');
+            let deleteUrl = `/student_delete/${studentId}`;
+
+            console.log('student_id='.studentId);
+            console.log('url='.deleteUrl);
+
+
+            if (confirm("Are you sure you want to delete this student? ")) {
+                $.ajax({
+                    url: deleteUrl,
+                    type: "POST",
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    },
+                    success: function(response) {
+                        if (response.status === 'success') {
+                            alert(response.messeage);
+                            // Remove the deleted row from the table
+                            $('#studentRow-' + studentId).remove();
+                        } else {
+                            alert('Failed to delete student.');
+                        }
+                    },
+                    error: function(xhr) {
+                        // alert("Error deleting student. Please try again.");
+                        let errors = xhr.responseJSON.errors;
+                        let errorMessage = '<ul>';
+                        for (let key in errors) {
+                            errorMessage += '<li>' + errors[key][0] + '</li>';
+                        }
+                        errorMessage += '</ul>';
+                        alert(errorMessage);
+                        console.log(errorMessage);
+                    }
+
+                });
+            }
+        }); +
 
         // Call the function to load data on page load
         fetchStudents();
     });
 </script>
+
 
 
 @endsection

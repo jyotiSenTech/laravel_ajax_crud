@@ -24,11 +24,13 @@ class Student extends Model
     ];
 
 
-    // public function getAllStudents()
+    // public static function getAllStudents()
     // {
     //     $students = DB::select("SELECT * FROM student_master WHERE deleted_at IS NULL");
-    //     //return view('employee-details', compact('students'));
+    //     return view('employee-details', compact('students'));
     // }
+
+
     // public function AllStudents()
     // {
     //     return self::whereNull('deleted_at')->get();

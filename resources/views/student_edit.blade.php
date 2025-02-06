@@ -195,7 +195,7 @@
 
 <div class="container">
     <div class="title">Student Update
-         <a href="{{route('student_register')}}"
+        <a href="{{route('student_register')}}"
             class="btn btn-sm btn-info ms-5"><i class="fa fa-user" aria-hidden="true"></i> Student Register</a>
 
         <a href="{{route('student_list')}}"
@@ -212,15 +212,15 @@
 
             <div class="input-box">
                 <span class="details">Email</span>
-                <input type="text" name="student_email" id="student_email" value="{{$student->student_email}}"  placeholder="Enter your email" required />
+                <input type="text" name="student_email" id="student_email" value="{{$student->student_email}}" placeholder="Enter your email" required />
             </div>
             <div class="input-box">
                 <span class="details">Phone Number</span>
-                <input type="text" name="student_phone" id="student_phone" value="{{$student->student_phone}}"  placeholder="Enter your number" required />
+                <input type="text" name="student_phone" id="student_phone" value="{{$student->student_phone}}" placeholder="Enter your number" required />
             </div>
             <div class="input-box">
                 <span class="details">DOB</span>
-                <input type="date" name="student_dob" id="student_dob" value="{{$student->student_dob}}"  placeholder="Enter your DOB" required />
+                <input type="date" name="student_dob" id="student_dob" value="{{$student->student_dob}}" placeholder="Enter your DOB" required />
             </div>
             <div class="input-box">
                 <span class="details">Address</span>
@@ -228,11 +228,11 @@
             </div>
             <div class="input-box">
                 <span class="details">Course Name</span>
-                <input type="text" name="student_course_name" id="student_course_name" value="{{$student->student_course_name}}"  placeholder="Enter your course" required />
+                <input type="text" name="student_course_name" id="student_course_name" value="{{$student->student_course_name}}" placeholder="Enter your course" required />
             </div>
             <div class="input-box">
                 <span class="details">Profile Image</span>
-                <input type="file" name="student_profile" id="student_profile" value="{{$student->student_profile}}"  required />
+                <input type="file" name="student_profile" id="student_profile" value="{{$student->student_profile}}" required />
             </div>
 
         </div>
@@ -264,7 +264,7 @@
             const studentId = "{{ $student->id }}";
 
             $.ajax({
-                url: "/student_update/" + studentId, // Replace with your update route
+                url: "/student_update/" + studentId,
                 method: "POST",
                 data: formData,
                 contentType: false,
@@ -272,7 +272,7 @@
                 success: function(response) {
                     if (response.status === 'success') {
                         alert(response.message);
-                        window.location.href = "{{ route('student_list') }}"; 
+                        window.location.href = "{{ route('student_list') }}";
                     } else {
                         alert('An error occurred while updating the student.');
                     }

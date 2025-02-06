@@ -20,40 +20,6 @@ class StudentController extends Controller
 
 
     // == ## Student Create Using Ajax ===================================================================================
-    // public function student_create(Request $request)
-    // {
-
-    //     $validatedData = $request->validate([
-    //         'student_name' => 'required|string|max:255',
-    //         'student_email' => 'required|string|max:255|email|unique:student_master,student_email',
-    //         'student_phone' => 'required|string|max:20',
-    //         'student_dob' => 'required|date',
-    //         'student_address' => 'required|string|max:255',
-    //         'student_course_name' => 'required|string|max:255',
-    //         'student_profile' => 'required|file|image|max:2048', // Validate file as image
-    //     ]);
-
-    //     $profilePath = $request->file('student_profile')->store('assets/uploads/students_profile/', 'public');
-
-
-    //     $student = Student::create([
-    //         'student_name' => $validatedData['student_name'],
-    //         'student_email' => $validatedData['student_email'],
-    //         'student_phone' => $validatedData['student_phone'],
-    //         'student_dob' => $validatedData['student_dob'],
-    //         'student_address' => $validatedData['student_address'],
-    //         'student_course_name' => $validatedData['student_course_name'],
-    //         'student_profile' => $profilePath,
-    //     ]);
-
-
-    //     return response()->json([
-    //         'status' => 'success',
-    //         'message' => 'Student Created Successfully',
-    //         'data' => $student,
-    //     ]);
-    // }
-
 
     public function student_create(Request $request)
     {
@@ -99,20 +65,11 @@ class StudentController extends Controller
     }
 
 
+
+
+
+
     // == ## Student Details fetch Using Ajax ===================================================================================
-
-
-    // public function student_show()
-    // {
-    //     $students = Student::all();
-
-    //     //  return view('student_details', compact('students'));
-    //     return response()->json([
-    //         'status' => 'success',
-    //         'data' => $students,
-    //     ]);
-    // }
-
 
 
     public function student_show(Request $request)
@@ -128,10 +85,9 @@ class StudentController extends Controller
                 'data' => $students,
             ]);
         }
-
-        // Return the Blade view for non-AJAX requests
         return view('student_details');
     }
+
 
 
 
@@ -139,7 +95,6 @@ class StudentController extends Controller
     public function student_edit(Request $request, $id)
     {
         $student = Student::find($id);
-
         if ($request->ajax()) {
             return response()->json([
                 'status' => 'success',
@@ -148,6 +103,9 @@ class StudentController extends Controller
         }
         return view('student_edit', compact('student'));
     }
+
+
+
 
 
     public function student_update(Request $request, $id)
@@ -202,11 +160,18 @@ class StudentController extends Controller
         $student = Student::find($id);
         if (!$student) {
 
-            return redirect()->back()->withErrors(['message' => 'Student Not Found']);
+            return response()->json([
+                'status' => 'error',
+                'messeage' => 'Student Not Found',
+            ]);
         } else {
 
             $student->delete();
-            return redirect()->route('student_list')->with('success', 'Student Updated Successfully');
+
+            return response()->json([
+                'status' => 'success',
+                'messeage' => 'Student Deleted Successfully',
+            ]);
         }
     }
 }
