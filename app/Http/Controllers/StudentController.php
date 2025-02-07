@@ -162,7 +162,7 @@ class StudentController extends Controller
 
             return response()->json([
                 'status' => 'error',
-                'messeage' => 'Student Not Found',
+                'message' => 'Student Not Found',
             ]);
         } else {
 
@@ -170,7 +170,7 @@ class StudentController extends Controller
 
             return response()->json([
                 'status' => 'success',
-                'messeage' => 'Student Deleted Successfully',
+                'message' => 'Student Deleted Successfully',
             ]);
         }
     }

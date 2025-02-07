@@ -12,13 +12,11 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<script>
+<!-- <script>
     $, ajaxSetup({
-        Headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('main-section')
-        }
+       
     });
-</script>
+</script> -->
 @endsection
 
 
@@ -270,6 +268,9 @@
             $.ajax({
                 url: "{{ route('student_create') }}",
                 method: "POST",
+                Headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('main-section')
+                },
                 data: formData,
                 contentType: false,
                 processData: false,

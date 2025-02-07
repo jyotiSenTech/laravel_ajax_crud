@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 05, 2025 at 06:34 AM
+-- Generation Time: Feb 07, 2025 at 04:59 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -46,9 +46,10 @@ CREATE TABLE `employee_master` (
 
 INSERT INTO `employee_master` (`id`, `emp_full_name`, `emp_email`, `emp_phone`, `emp_gender`, `emp_username`, `emp_password`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (2, 'Sanvi Verma', 'sanvi45@gmail.com', '9665874856', 'F', 'sanvi23@fht', '$2y$10$NtHw5ADk2C3GV3zwgae3XOiUlW019CqnkiqPMCXCbGQWgJ9F..9nO', '2025-02-04 05:04:34', '2025-02-04 07:04:34', NULL),
-(3, 'Nikita Gandhi', 'nikita123@gmail.com', '06268172728', 'F', 'nikita@45', '$2y$10$U5.0o0yBFEHI0bCJSoEVJ.SQTJ.VgyQvPgWI7T3PMamg8kJe6sIti', '2025-02-04 07:05:45', '2025-02-04 09:15:05', '2025-02-04 09:15:05'),
-(4, 'xyz', 'xyz@gmail.com', '06268172728', 'F', 'admin@23', '$2y$10$TyyCVk2cdJW2KnxmdQHXFeuJOhzPgBahMpaFBB2RCK3q9fW1lp.4S', '2025-02-04 07:42:51', '2025-02-04 08:52:39', '2025-02-04 08:52:39'),
-(5, 'Shalin Shekh', 'shalin1235@gmail.com', '9669854758', 'M', 'sekhshalin@234', '$2y$10$QB25nKlPLOuTwuoxPwaZy.0HTFgVAadbysLdOUU1qye9bvguz5ape', '2025-02-05 13:26:15', '2025-02-05 13:26:44', NULL);
+(3, 'Nikita Gandhi', 'nikita123@gmail.com', '06268172728', 'F', 'nikita@45', '$2y$10$U5.0o0yBFEHI0bCJSoEVJ.SQTJ.VgyQvPgWI7T3PMamg8kJe6sIti', '2025-02-04 07:05:45', '2025-02-04 09:15:05', NULL),
+(4, 'xyz', 'xyz@gmail.com', '06268172728', 'F', 'admin@23', '$2y$10$TyyCVk2cdJW2KnxmdQHXFeuJOhzPgBahMpaFBB2RCK3q9fW1lp.4S', '2025-02-04 07:42:51', '2025-02-04 08:52:39', NULL),
+(5, 'Shalin Shekh', 'shalin1235@gmail.com', '9669854758', 'M', 'sekhshalin@234', '$2y$10$QB25nKlPLOuTwuoxPwaZy.0HTFgVAadbysLdOUU1qye9bvguz5ape', '2025-02-05 13:26:15', '2025-02-05 13:26:44', NULL),
+(6, 'Neetu Singh', 'neetu2340@gmail.com', '6268172845', 'F', 'neetu345623', '$2y$10$0Sap3neLpOBrWXTGEaL5eelG3FUQ.Lk/WThl1PyYamN/ppIPsxUOy', '2025-02-07 10:22:17', '2025-02-07 10:22:52', NULL);
 
 -- --------------------------------------------------------
 
@@ -154,8 +155,9 @@ INSERT INTO `student_master` (`id`, `student_name`, `student_email`, `student_ph
 (6, 'ajax name', 'ajax@gmail.com', '1234567895', '2025-01-24', 'assets/uploads/students_profile//BkhHgX4lAu7KlHbWQjtmJ3NbbgXuqCCegJ8xVyT3.jpg', 'bhilai', 'B.tech', '2025-01-24 05:02:34', '2025-02-05 07:44:44', '2025-02-05 07:44:44'),
 (7, 'Nidhi Sahu', 'nidhi12t@gmail.com', '06268172784', '2025-01-27', 'assets/uploads/students_profile//LZDRikyIwjAloGhr1JWH7p5SiU8yMcJ2NrTgqbSU.jpg', 'Jora, Raipur', 'B.tech', '2025-02-04 04:22:54', '2025-02-04 04:22:54', NULL),
 (8, 'Ritik Shah', 'ritikshah@gmail.com', '9954876258', '2025-02-05', 'assets/uploads/students_profile//MamzoqTTiDqBzcSN1UlRXqyyFDFQ5vYivBFOgwfj.png', 'Mahadev Ghat, Raipur', 'B.tech', '2025-02-05 07:53:38', '2025-02-05 07:53:38', NULL),
-(9, 'JYOTI SEN', 'sw23w@gmail.com', '06268172728', '2025-02-05', 'assets/uploads/students_profile//NiAWv8dDodR2fYpn4WjGflRfsodtm7nFr6PCgjQE.png', 'Birgaon', 'B.tech', '2025-02-05 08:17:57', '2025-02-05 08:17:57', NULL),
-(10, 'Mahira Khan', 'mahirak123@gmail.com', '6268574859', '2020-06-20', 'assets/uploads/students_profile//ff5brtAMDpDwczDotA7YsUAE1fKvoJHlgNEGKyVQ.png', 'Sarona, Raipur', 'B.tech', '2025-02-05 13:28:01', '2025-02-05 13:28:01', NULL);
+(9, 'JYOTI SEN', 'sw23w@gmail.com', '06268172728', '2025-02-05', 'assets/uploads/students_profile//NiAWv8dDodR2fYpn4WjGflRfsodtm7nFr6PCgjQE.png', 'Birgaon', 'B.tech', '2025-02-05 08:17:57', '2025-02-07 10:20:48', '2025-02-07 10:20:48'),
+(10, 'Mahira Khan', 'mahirak123@gmail.com', '6268574859', '2020-06-20', 'assets/uploads/students_profile//ff5brtAMDpDwczDotA7YsUAE1fKvoJHlgNEGKyVQ.png', 'Sarona, Raipur', 'B.tech', '2025-02-05 13:28:01', '2025-02-05 13:28:01', NULL),
+(11, 'Neetu Singh', 'neetu@gmail.com', '6265878789', '2025-02-07', '1738943436.jpg', 'Bilaspur', 'B.tech', '2025-02-07 10:18:32', '2025-02-07 10:20:36', NULL);
 
 -- --------------------------------------------------------
 
@@ -234,7 +236,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `employee_master`
 --
 ALTER TABLE `employee_master`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -258,7 +260,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `student_master`
 --
 ALTER TABLE `student_master`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `users`

@@ -200,7 +200,7 @@
                     },
                     success: function(response) {
                         if (response.status === 'success') {
-                            alert(response.messeage);
+                            alert(response.message);
                             // Remove the deleted row from the table
                             $('#studentRow-' + studentId).remove();
                         } else {

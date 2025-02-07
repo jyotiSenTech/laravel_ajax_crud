@@ -171,7 +171,7 @@ class EmployeeController extends Controller
 
                 // Case Employee Show 
             case 'employee_show':
-                $employees = Employee::withTrashed()->get();
+                $employees = Employee::all();
                 // $employees = Employee::all();
                 return view('employee_details', compact('employees'));
 
@@ -213,7 +213,6 @@ class EmployeeController extends Controller
                     $employee->delete();
                     return redirect()->route('employee_crud', ['action' => 'employee_show'])->with('success', 'Employee Updated Successfully');
                 }
-
 
 
             default:
